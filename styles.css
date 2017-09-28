@@ -1,0 +1,13 @@
+body {
+	font-family: Maison Neue;
+	font-size: 12px; 
+	color: #00f;
+}
+
+.content {
+	text-align: center;
+	margin: 0 auto;
+	top: calc(45vh);
+	display: block;
+	position: relative;
+}
