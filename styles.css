@@ -1,13 +1,11 @@
-body {
-	font-family: Maison Neue;
-	font-size: 12px; 
-	color: #00f;
-}
+::selection { background: red; }
 
-.content {
-	text-align: center;
-	margin: 0 auto;
-	top: calc(45vh);
-	display: block;
-	position: relative;
+.notepad {
+	float: right;
+	z-index: 10;
+	border: 1px solid;
+	width: 30px;
+	height: auto;
+	font-size: 10px;
+	font-family: Helvetica;
 }

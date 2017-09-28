@@ -14,13 +14,13 @@ chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "highlighted_element" ) {
 		
-		chrome.tabs.executeScript({
-			code: 'var mySelection = window.getSelection().getRangeAt(0); var selectionContents=mySelection.cloneContents(); console.log(selectionContents.textContent)'
+		chrome.tabs.executeScript(null, {
+      file: "insert.js"
 		});
 
-		// chrome.tabs.insertCSS({
-		// 	file: "addedStyles.css"
-		// });
+		chrome.tabs.insertCSS({
+			file: "styles.css"
+		});
 
         // chrome.tabs.create({"url": request.url});
     }
