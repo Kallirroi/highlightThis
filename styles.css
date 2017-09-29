@@ -4,8 +4,8 @@
 	float: right;
 	z-index: 10;
 	border: 1px solid;
-	width: 30px;
-	height: auto;
+	width: 100px;
+	height: 200px;
 	font-size: 10px;
 	font-family: Helvetica;
 }
