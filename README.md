@@ -1,4 +1,4 @@
-# Highlight this bias
+# Slantometer
 
-While reading a news article.
+Highlight bias while reading a news article.
 
