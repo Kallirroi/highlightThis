@@ -3,7 +3,7 @@
 var mySelection = window.getSelection().getRangeAt(0); 
 var selectionContents=mySelection.cloneContents(); 
 var bias = selectionContents.textContent ; 
-
+var time = -1 * new Date().getTime();
 // var howMany = Object.keys(localStorage).length + 1;
 // localStorage.setItem('highlight '+ howMany, JSON.stringify(bias));
 
@@ -17,7 +17,8 @@ fetch('https://learningapi-6bca4.firebaseio.com/highlights.json', {
 	body: JSON.stringify({
 		text: bias,
 		color: 'green',
-		url: "some url"
+		url: "some url",
+		timeStamp: time
 	})
 })
 .then((result)=>{ 
