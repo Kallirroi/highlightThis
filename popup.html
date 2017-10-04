@@ -9,7 +9,7 @@
     <title>Getting Started Extension's Popup</title>
     <style type="text/css">
       body {
-        margin: 10px;
+        margin: 7px;
         white-space: nowrap;
       }
 
@@ -17,33 +17,63 @@
         font-size: 15px;
       }
 
+      button:hover {
+        background-color: #A9A9A9;
+      }
+
+      button {
+        cursor: pointer; /* Pointer/hand icon */
+        float: left; /* Float the buttons side by side */
+        width: 20px;
+        height: 20px;
+        border-radius: 25px; 
+        margin: 3px;
+        border-style: none;
+      }
+
       #container {
         align-items: center;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between; 
+        visibility: hidden;
+      }
+
+      .green {
+        background-color: #6FD662;
+      }
+
+      .red {
+        background-color: #F3433E;
+      }
+
+      .yellow {
+        background-color: #FCF271;
+      }
+
+      .none {
+        background-color: white;
+        border-style:solid; 
+        border-color: black;
+        border-width: 1px;
       }
     </style>
 
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
-      -
+      - <script src="content.js"></script>
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+      <script src="insert.js"></script>
     -->
-    <script src="popup.js"></script>
+    
   </head>
 
   <body>
-    <h1>Background Color Changer</h1>
     <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
-      </select>
+      <button class="green"></button>
+      <button class="yellow"></button>
+      <button class="red"></button>
+      <button class="none"></button>
     </div>
   </body>
 </html>
