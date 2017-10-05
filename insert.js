@@ -1,104 +1,76 @@
 var mySelection = window.getSelection().getRangeAt(0); 
-var selectionContents=mySelection.cloneContents(); 
-var bias = selectionContents.textContent ; 
+var selectionContents=mySelection.cloneContents();
+var bias = selectionContents.textContent ;  
+var site = window.location.href;
+var highlight_color = '';
 
-var site = window.location.href; 
-console.log(mySelection); 
-
-// Add bubble to the top of the page.
 var bubbleDOM = document.createElement('div');
 bubbleDOM.setAttribute('class', 'selection_bubble');
 document.body.appendChild(bubbleDOM);
 
-// Lets listen to mouseup DOM events.
-document.addEventListener('mouseup', function (e) {
 
+document.addEventListener('mouseup', function (e) {
   var selection = window.getSelection().toString();
   if (selection.length > 0) {
     renderBubble(e.clientX, e.clientY, selection);
   }
 }, false);
 
-// Close the bubble when we click on the screen.
-document.addEventListener('mousedown', function (e) {
-  var tooltip = document.getElementById('container');
-  tooltip.style.visibility = 'hidden';
+document.addEventListener('mousedown', function (e) { 
+  var selection = window.getSelection().toString();
+  if(selection.length <= 0){
+      bubbleDOM.style.visibility = 'hidden';
+  }
 }, false);
 
-//change background color when button is clicked
-$('.green').on('mousedown', function(e) {
-  var selection = window.getSelection().toString();
-  console.log(selection)
-  if (selection.length > 0) {
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span"); 
-    span.className = 'green';
-    span.appendChild(tr.extractContents());
-    tr.insertNode(span);
-  }
-})
-
-$('.red').on('mousedown', function(e) {
-  var selection = window.getSelection().toString();
-  console.log(selection)
-  if (selection.length > 0) {
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span"); 
-    span.className = 'red';
-    span.appendChild(tr.extractContents());
-    tr.insertNode(span);
-  }
-})
-
-$('.yellow').on('mousedown', function(e) {
-  var selection = window.getSelection().toString();
-  console.log(selection)
-  if (selection.length > 0) {
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span"); 
-    span.className = 'yellow';
-    span.appendChild(tr.extractContents());
-    tr.insertNode(span);
-  }
-})
-
-$('.none').on('mousedown', function(e) {
-  var selection = window.getSelection().toString();
-  if (selection.length > 0) {
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span"); 
-    span.className = 'none-highlight';
-    span.appendChild(tr.extractContents());
-    tr.insertNode(span);
-  }
-})
-
-
-// Move that bubble to the appropriate location.
+// // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
-  var tooltip = document.getElementById('container');
-  tooltip.style.top = mouseY + 5 + 'px';
-  tooltip.style.left = mouseX + 'px';
-  tooltip.style.visibility = 'visible';
+  bubbleDOM.innerHTML = "<button class='green'></button><button class='yellow'></button><button class='red'></button><button class='none'></button>";
+  
+  bubbleDOM.style.top = mouseY + 5 +'px';
+  bubbleDOM.style.left = mouseX + 'px';
+  bubbleDOM.style.visibility = 'visible';
+  var tr = window.getSelection().getRangeAt(0); 
+  $('.green').on('mousedown', function(e) {
+      highlightText('green',tr);
+  })
+  $('.yellow').on('mousedown', function(e) {
+    highlightText('yellow',tr);
+  })
+  $('.red').on('mousedown', function(e) {
+    highlightText('red',tr);
+  })
+  $('.none').on('mousedown', function(e) {
+    highlightText('none',tr);
+  })  
 }
-// var howMany = Object.keys(localStorage).length + 1;
-// localStorage.setItem('highlight '+ howMany, JSON.stringify(bias));
+ 
+function highlightText(color, tr){
+  var span = document.createElement("span");
+  span.className = color;
+  bubbleDOM.style.visibility = 'hidden';
+  span.appendChild(tr.extractContents());
+  tr.insertNode(span);
+  sendToDatabase(color,tr.toString());
+}
 
-
-fetch('https://learningapi-6bca4.firebaseio.com/highlights.json', { 
-	method: 'POST', 
-	headers: { 
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       },
-	body: JSON.stringify({
-		text: bias,
-		color: 'green',
-		url: site
-	})
-})
-.then((result)=>{
-	return result.json();
-}).then((json)=>{ 
-	console.log(json);
-})
+function sendToDatabase(color,tr){
+  fetch('https://learningapi-6bca4.firebaseio.com/highlights.json', { 
+    method: 'POST', 
+    headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         },
+    body: JSON.stringify({
+      text: tr,
+      color: color,
+      url: site
+    })
+  })
+  .then((result)=>{ 
+    // if (result.ok)
+    return result.json();
+  }).then((json)=>{ 
+    console.log(json);
+  })
+}

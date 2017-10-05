@@ -1,11 +1,45 @@
-/*::selection { background: red; }
 
-.notepad {
-	float: right;
-	z-index: 10;
-	border: 1px solid;
-	width: 100px;
-	height: 200px;
-	font-size: 10px;
-	font-family: Helvetica;
-}*/
+
+button:hover {
+    background-color: #A9A9A9;
+}
+
+.selection_bubble {
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  position: fixed;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  
+} 
+
+button {
+	cursor: pointer; /* Pointer/hand icon */
+	float: left; /* Float the buttons side by side */
+	width: 20px;
+	height: 20px;
+	border-radius: 25px; 
+	margin: 3px;
+	border-style: none;
+}
+
+#container {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+.green {
+    background-color: #6FD662;
+}
+
+.red {
+    background-color: #F3433E;
+}
+
+.yellow {
+    background-color: #FCF271;
+}
