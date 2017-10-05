@@ -17,9 +17,9 @@ Highlight bias while reading a news article.
 
 ## Notes 
 1. Use the following hightlighting scheme to mark-up articles:
-  1. Red = clearly biased text/opinionated text 
-  2. Yellow = context on a topic that may be factual but has been conveniently chosen to surround a subject 
-  3. Green = clearly factual/unbiased text. Essentially the reason the article was written. 
+   1. Red = clearly biased text/opinionated text 
+   2. Yellow = context on a topic that may be factual but has been conveniently chosen to surround a subject 
+   3. Green = clearly factual/unbiased text. Essentially the reason the article was written. 
 
 2. This extension currently does not support re-highlights and un-highlighting text (it screws up our database). While you are marking up articles, please make sure you don't accidentally highlight text that shouldn't be highlighted (or mark it up with the wrong color).
 
