@@ -16,17 +16,9 @@ document.addEventListener('mouseup', function (e) {
   }
 }, false);
 
-document.addEventListener('mousedown', function (e) { 
-  var selection = window.getSelection().toString();
-  if(selection.length <= 0){
-      bubbleDOM.style.visibility = 'hidden';
-  }
-}, false);
 
-// // Move that bubble to the appropriate location.
 function renderBubble(mouseX, mouseY, selection) {
-  bubbleDOM.innerHTML = "<button class='green'></button><button class='yellow'></button><button class='red'></button><button class='none'></button>";
-  
+  bubbleDOM.innerHTML = "<button class='green'></button><button class='yellow'></button><button class='red'></button>";
   bubbleDOM.style.top = mouseY + 5 +'px';
   bubbleDOM.style.left = mouseX + 'px';
   bubbleDOM.style.visibility = 'visible';
@@ -40,18 +32,16 @@ function renderBubble(mouseX, mouseY, selection) {
   $('.red').on('mousedown', function(e) {
     highlightText('red',tr);
   })
-  $('.none').on('mousedown', function(e) {
-    highlightText('none',tr);
-  })  
 }
  
 function highlightText(color, tr){
   var span = document.createElement("span");
   span.className = color;
-  bubbleDOM.style.visibility = 'hidden';
   span.appendChild(tr.extractContents());
   tr.insertNode(span);
-  sendToDatabase(color,tr.toString());
+  sendToDatabase(color,tr.toString()); 
+  window.getSelection().empty();
+  bubbleDOM.style.visibility = 'hidden';
 }
 
 function sendToDatabase(color,tr){
@@ -67,8 +57,7 @@ function sendToDatabase(color,tr){
       url: site
     })
   })
-  .then((result)=>{ 
-    // if (result.ok)
+  .then((result)=>{
     return result.json();
   }).then((json)=>{ 
     console.log(json);

@@ -13,7 +13,7 @@ Highlight bias while reading a news article.
    1. Select the text you wish to highlight 
    2. Click on the extension button in your browser (a small red highlighter)
    3. Click on the text that you selected and a small tooltip with highlighter color options will appear. Highlight the text as you see fit!
-2. Other highlights: Highlight as you normally would. Select text, select the appropriate color and the information will be saved in our database.
+2. Following highlights: Highlight as you normally would. Select text, select the appropriate color and the information will be saved in our database.
 
 ## Notes 
 1. Use the following hightlighting scheme to mark-up articles:
@@ -21,6 +21,5 @@ Highlight bias while reading a news article.
    2. Yellow = context on a topic that may be factual but has been conveniently chosen to surround a subject 
    3. Green = clearly factual/unbiased text. Essentially the reason the article was written. 
 
-2. This extension currently does not support re-highlights and un-highlighting text (it screws up our database). While you are marking up articles, please make sure you don't accidentally highlight text that shouldn't be highlighted (or mark it up with the wrong color).
+2. This extension currently does not support un-highlighting text (it screws up our database). While you are marking up articles, please make sure you don't accidentally highlight text that shouldn't be highlighted.
 
-3. If the highlighting tool-tip is not disappearing, then clicking twice in an area away from text on the webpage should help make the tool-tip disappear. 
