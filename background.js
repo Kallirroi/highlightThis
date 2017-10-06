@@ -1,4 +1,3 @@
-
 // Called when the user clicks on the browser action.
 chrome.browserAction.onClicked.addListener(function(tab) {
   
@@ -13,16 +12,15 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "highlighted_element" ) {
-  		
-  		chrome.tabs.executeScript(null, {
+      
+      chrome.tabs.executeScript(null, {
         file: "insert.js"
-  		});
+      });
 
-  		chrome.tabs.insertCSS({
-  			file: "styles.css"
-  		});
+      chrome.tabs.insertCSS({
+        file: "styles.css"
+      });
 
     }
   }
 );
-
