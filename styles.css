@@ -12,7 +12,6 @@ button:hover {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  
 } 
 
 button {
@@ -33,13 +32,16 @@ button {
 }
 
 .green {
-    background-color: #6FD662;
+    background-color: #017C32;
+    opacity: 0.8;
 }
 
 .red {
-    background-color: #F3433E;
+    background-color: #EB0F03; 
+    opacity: 0.8;
 }
 
 .yellow {
-    background-color: #FCF271;
+    background-color: #FFEA26;
+    opacity: 0.8;
 }
