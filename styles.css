@@ -32,16 +32,13 @@ button {
 }
 
 .green {
-    background-color: #017C32;
-    opacity: 0.8;
+    background-color: rgba(1,124,50, 0.7);
 }
 
 .red {
-    background-color: #EB0F03; 
-    opacity: 0.8;
+    background-color: rgba(235,15,3, 0.7); 
 }
 
 .yellow {
-    background-color: #FFEA26;
-    opacity: 0.8;
+    background-color: rgba(255,234,38, 0.7);
 }
