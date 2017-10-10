@@ -8,7 +8,7 @@ Highlight bias while reading a news article.
 3. Click on the "Load unpacked extension" button and select the main directory of the downloaded ZIP file. 
 4. Ensure that the extension is enabled. 
 
-![alt text](video.gif "GIF") 
+![alt text](video_long.gif "GIF") 
 
 ## Usage  
 1. For the first highlight you make on a webpage: 
