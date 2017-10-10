@@ -12,7 +12,6 @@ button:hover {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  
 } 
 
 button {
@@ -33,13 +32,13 @@ button {
 }
 
 .green {
-    background-color: #6FD662;
+    background-color: rgba(1,124,50, 0.7);
 }
 
 .red {
-    background-color: #F3433E;
+    background-color: rgba(235,15,3, 0.7); 
 }
 
 .yellow {
-    background-color: #FCF271;
+    background-color: rgba(255,234,38, 0.7);
 }
