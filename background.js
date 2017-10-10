@@ -9,6 +9,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 });
 
+//if content.js detects that the highlight button has been clicked, then update page with insert.js
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "highlighted_element" ) {

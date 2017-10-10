@@ -4,11 +4,12 @@ var bias = selectionContents.textContent ;
 var site = window.location.href;
 var highlight_color = '';
 
+//Create div that will have highlighting options
 var bubbleDOM = document.createElement('div');
 bubbleDOM.setAttribute('class', 'selection_bubble');
 document.body.appendChild(bubbleDOM);
 
-
+//If there is text selected on the page, render the highlighting bubble
 document.addEventListener('mouseup', function (e) {
   var selection = window.getSelection().toString();
   if (selection.length > 0) {
@@ -17,6 +18,7 @@ document.addEventListener('mouseup', function (e) {
 }, false);
 
 
+//Render highlighting bubble
 function renderBubble(mouseX, mouseY, selection) {
   bubbleDOM.innerHTML = "<button class='green'></button><button class='yellow'></button><button class='red'></button>";
   bubbleDOM.style.top = mouseY + 5 +'px';
@@ -34,6 +36,7 @@ function renderBubble(mouseX, mouseY, selection) {
   })
 }
  
+//Highlight text, push visual to webpage and send info to database 
 function highlightText(color, tr){
   var span = document.createElement("span");
   span.className = color;
@@ -44,6 +47,7 @@ function highlightText(color, tr){
   bubbleDOM.style.visibility = 'hidden';
 }
 
+//Send text, highlight color and url to firbase API
 function sendToDatabase(color,tr){
   fetch('https://learningapi-6bca4.firebaseio.com/highlights.json', { 
     method: 'POST', 
