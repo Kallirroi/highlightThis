@@ -1,3 +1,4 @@
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
   	//if the highlight button is clicked
@@ -10,6 +11,7 @@ chrome.runtime.onMessage.addListener(
     }
   }
 );
+
 
 
 
