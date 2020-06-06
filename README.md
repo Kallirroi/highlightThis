@@ -1,4 +1,4 @@
-# Slant-o-meter
+# HighlightThis
 
 Highlight bias while reading a news article. 
 
